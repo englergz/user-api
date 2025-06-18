@@ -2,14 +2,17 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/englergz/user-api/internal/controllers"
 )
 
-func Home(router *gin.Engine) {
+func RegisterUserRoutes(router *gin.Engine) {
 
-	router.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "Welcome to the User API",
-		})
-	})
+	userRoutes := router.Group("/users")
+	{
+		userRoutes.GET("/", controllers.GetUsers)
+		userRoutes.GET("/:id", controllers.GetUser)
+		userRoutes.POST("/", controllers.CreateUser)
+		userRoutes.PUT("/:id", controllers.UpdateUser)
+		userRoutes.DELETE("/:id", controllers.DeleteUser)
+	}
 }
-
