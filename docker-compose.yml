@@ -17,7 +17,7 @@ services:
     build: .
     container_name: user-api
     ports:
-      - "8080:8080"
+      - "3000:3000"
     depends_on:
       - db
     volumes:
