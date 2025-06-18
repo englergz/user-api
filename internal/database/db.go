@@ -3,6 +3,7 @@ package database
 import (
 	"fmt"
 	"log"
+	"os"
 	"time"
 
 
@@ -14,7 +15,14 @@ import (
 var DB *gorm.DB
 
 func Connect() {
-	dsn := "host=postgres_db user=postgres password=secret dbname=users_db port=5432 sslmode=disable"
+	host := os.Getenv("DB_HOST")
+
+	if host == "" {
+		host = "localhost" // valor por defecto en desarrollo local
+	}
+
+	dsn := fmt.Sprintf("host=%s user=postgres password=secret dbname=users_db port=5432 sslmode=disable", host)
+
 	var err error
 	maxAttempts := 10
 

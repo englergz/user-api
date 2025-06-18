@@ -1,6 +1,4 @@
-
-
-# 🧠 User API - Backend (Go + Gin + PostgreSQL)
+# 🧠 User API - Desarrollador Backend (Go + Gin + PostgreSQL)
 
 Este proyecto es una API RESTful para la gestión de usuarios, desarrollada en Go utilizando el framework **Gin**, el ORM **GORM** y **PostgreSQL** como base de datos.
 
@@ -21,12 +19,16 @@ Este proyecto es una API RESTful para la gestión de usuarios, desarrollada en G
 ```bash
 user-api/
 ├── internal/
-│   ├── config/         # Configuración DB (database.go)
-│   ├── controllers/    # Handlers HTTP (user.go)
-│   └── models/         # Modelo de usuario (user.go)
-├── main.go             # Punto de entrada
-├── go.mod / go.sum     # Dependencias
-└── README.md
+│   ├── database/       # Configuración de base de datos (db.go)
+│   ├── controllers/    # Handlers HTTP y lógica de control (user.go)
+│   ├── models/         # Modelo de datos (user.go)
+│   └── routes/         # Rutas (routes.go)
+├── main.go             # Punto de entrada principal
+├── go.mod              # Archivo de definición del módulo Go
+├── go.sum              # Suma de comprobación de dependencias
+├── Dockerfile          # Imagen de contenedor para la aplicación
+├── docker-compose.yml  # Orquestación de servicios (app y PostgreSQL)
+└── README.md           # Documentación del proyecto
 ```
 
 ---
